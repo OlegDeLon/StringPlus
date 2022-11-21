@@ -1,0 +1,18 @@
+#include "s21_string.h"
+
+s21_size_t s21_strspn(const char *str1, const char *str2) {
+  const char *pString1, *pString2;
+  s21_size_t count = 0;
+  for (pString1 = str1; *pString1 != '\0'; ++pString1) {
+    for (pString2 = str2; *pString2 != '\0'; ++pString2) {
+      if (*pString1 == *pString2) {
+        count++;
+        break;
+      }
+    }
+    if (*pString2 == '\0') {
+      break;
+    }
+  }
+  return count;
+}
